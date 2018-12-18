@@ -23,6 +23,6 @@ where is python3
 Ctrl+D
 
 ## Jekyll
-serve jekyll index.md
+jekyll serve index.md
 
-build jekyll index.md
+jekyll build index.md
