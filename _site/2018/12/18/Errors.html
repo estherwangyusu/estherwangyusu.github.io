@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Errors | Esther’s Blog</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Errors" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Errors when running python3 $OPENRAM_HOME/openram.py myconfig" />
+<meta property="og:description" content="Errors when running python3 $OPENRAM_HOME/openram.py myconfig" />
+<link rel="canonical" href="http://localhost:4000/2018/12/18/Errors.html" />
+<meta property="og:url" content="http://localhost:4000/2018/12/18/Errors.html" />
+<meta property="og:site_name" content="Esther’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-18T00:00:00-08:00" />
+<script type="application/ld+json">
+{"description":"Errors when running python3 $OPENRAM_HOME/openram.py myconfig","@type":"BlogPosting","url":"http://localhost:4000/2018/12/18/Errors.html","headline":"Errors","dateModified":"2018-12-18T00:00:00-08:00","datePublished":"2018-12-18T00:00:00-08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/12/18/Errors.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=5bc3b7075043fc1633dce2cc7ea1cb1b031593c9">
+    <script src="/assets/js/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Esther's Blog</h1>
+        <p class="header">Study Notebook</p>
+
+        <ul>
+          
+          <li><a class="buttons github" href="http://github.com/estherwangyusu/estherwangyusu.github.io">View On GitHub</a></li>
+        </ul>
+
+        
+          <p class="header">This project is maintained by <a class="header name" href="http://github.com/estherwangyusu">estherwangyusu</a></p>
+        
+
+        
+      </header>
+
+      <section>
+        <h1 id="errors-when-running-python3-openram_homeopenrampy-myconfig">Errors when running python3 $OPENRAM_HOME/openram.py myconfig</h1>
+
+<h2 id="run-python3-openram_homeopenrampy-myconfig">Run python3 $OPENRAM_HOME/openram.py myconfig</h2>
+<h3 id="error-log">Error LOG</h3>
+<p>ERROR: file calibre.py: line 124: Unable to retrieve DRC results file. Is calibre set up?
+Traceback (most recent call last):
+ File “/mada/users/ywang646/OpenRAM/compiler/verify/calibre.py”, line 122, in run_drc
+   f = open(drc_runset[‘drcSummaryFile’], “r”)
+FileNotFoundError: [Errno 2] No such file or directory: ‘/tmp/openram_ywang646_15539_temp/dff_inv_2.drc.summary’</p>
+
+<p>During handling of the above exception, another exception occurred:</p>
+
+<p>Traceback (most recent call last):
+ File “/soe/ywang646/OpenRAM/compiler/openram.py”, line 61, in <module>
+   name=OPTS.output_name)
+ File “/mada/users/ywang646/OpenRAM/compiler/sram.py”, line 43, in __init__
+   self.s.create_netlist()
+ File “/mada/users/ywang646/OpenRAM/compiler/sram_1bank.py”, line 26, in create_netlist
+   sram_base.create_netlist(self)
+ File “/mada/users/ywang646/OpenRAM/compiler/sram_base.py”, line 72, in create_netlist
+   self.add_modules()
+ File “/mada/users/ywang646/OpenRAM/compiler/sram_base.py”, line 233, in add_modules
+   self.control_logic = self.mod_control_logic(num_rows=self.num_rows)
+ File “/soe/ywang646/OpenRAM/compiler/modules/control_logic.py”, line 28, in __init__
+   self.create_netlist()
+ File “/soe/ywang646/OpenRAM/compiler/modules/control_logic.py”, line 35, in create_netlist
+   self.add_modules()
+ File “/soe/ywang646/OpenRAM/compiler/modules/control_logic.py”, line 61, in add_modules
+   dff = dff_inv()
+ File “/soe/ywang646/OpenRAM/compiler/modules/dff_inv.py”, line 30, in __init__
+   self.create_layout()
+ File “/soe/ywang646/OpenRAM/compiler/modules/dff_inv.py”, line 45, in create_layout
+   self.DRC_LVS()
+ File “/soe/ywang646/OpenRAM/compiler/base/hierarchy_design.py”, line 77, in DRC_LVS
+   debug.check(verify.run_drc(self.name, tempgds) == 0,“DRC failed for {0}“.format(self.name))
+ File “/mada/users/ywang646/OpenRAM/compiler/verify/calibre.py”, line 124, in run_drc
+   debug.error(“Unable to retrieve DRC results file. Is calibre set up?“,1)
+ File “/mada/users/ywang646/OpenRAM/compiler/debug.py”, line 23, in error
+   assert return_value==0
+AssertionError</module></p>
+
+<h3 id="step1">Step1</h3>
+<p>Git pull PrivateRAM</p>
+<h3 id="step2">Step2</h3>
+<p>Copy /mada/software/setup.sh” to /.bashrc</p>
+<h3 id="step3">Step3</h3>
+<p>Add OpenRAM enviorment variables:</p>
+
+<p>export OPENRAM_HOME=”$HOME/PrivateRAM/compiler”</p>
+
+<p>export OPENRAM_TECH=”$HOME/PrivateRAM/technology”</p>
+
+<p>export PYTHONPATH=”$PYTHONPATH:$OPENRAM_HOME”</p>
+
+<p>export FREEPDK45=”/mada/software/techfiles/FreePDK45”</p>
+
+<h3 id="step4">Step4</h3>
+<p>Restart the shell</p>
+
+      </section>
+
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

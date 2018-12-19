@@ -20,7 +20,7 @@
 {"description":"#Start with OpenRAM","@type":"BlogPosting","url":"http://localhost:4000/2018/11/22/StartOpenRAM.html","headline":"Startopenram","dateModified":"2018-11-22T00:00:00-08:00","datePublished":"2018-11-22T00:00:00-08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/11/22/StartOpenRAM.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=8b6d2204bbfd65ca88e9a49c87a513f7437da083">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5bc3b7075043fc1633dce2cc7ea1cb1b031593c9">
     <script src="/assets/js/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -51,15 +51,22 @@
 <h2 id="git-clone-the-source">Git Clone the Source</h2>
 <p>git clone git://</p>
 
-<h2 id="show-current-directory-address">Show Current Directory Address</h2>
+<h2 id="linux">Linux</h2>
+<h3 id="show-current-directory-address">Show Current Directory Address</h3>
 <p>pwd</p>
+<h3 id="copy-document">Copy document</h3>
+<p>cp source dest</p>
+<h3 id="rename-document">Rename document</h3>
+<p>mv filename1.ext filename2.ext
+###bashrc
+Bash runs the contents of bashrc file at each launch to load your preference.
+This shell script is found in each user’s home directory. It’s used to save and load your terminal preferences and environmental variables.
+set up all of the tools on mada0 by adding “source/mada/software/setup.sh to the end of your .bashrc file inyour home directory.</p>
 
 <h2 id="export-environment-varibles">Export Environment Varibles</h2>
-<p>export OPENRAM_HOME=”$HOME/openram/compiler”</p>
-
-<p>export OPENRAM_TECH=”$HOME/openram/technology”</p>
-
-<p>export PYTHONPATH=”$PYTHONPATH:$OPENRAM_HOME”</p>
+<p>export OPENRAM_HOME=”$HOME/openram/compiler”
+export OPENRAM_TECH=”$HOME/openram/technology”
+export PYTHONPATH=”$PYTHONPATH:$OPENRAM_HOME”</p>
 
 <p><strong>Note: it’s OpenRAM not openram</strong></p>
 
@@ -71,9 +78,17 @@
 <p>Ctrl+D</p>
 
 <h2 id="jekyll">Jekyll</h2>
-<p>serve jekyll index.md</p>
+<p>jekyll serve index.md</p>
 
-<p>build jekyll index.md</p>
+<p>jekyll build index.md</p>
+<h2 id="vim">Vim</h2>
+<p>:w - save the file
+:q - exit
+:wq - save and exit</p>
+
+<h2 id="unit-tests">Unit Tests</h2>
+<p>Directory:
+$OPENRAM_HOME/compiler/tests</p>
 
       </section>
 
