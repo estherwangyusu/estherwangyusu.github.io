@@ -24,7 +24,7 @@ export PYTHONPATH="$PYTHONPATH:$OPENRAM_HOME"
 
 ## Python3
 ### Find Python3 Path
-where is python3
+which python3
 
 ### Exit Python3
 Ctrl+D
